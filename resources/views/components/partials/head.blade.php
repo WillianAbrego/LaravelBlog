@@ -10,6 +10,8 @@
 
 <!-- Scripts -->
 @vite(['resources/css/app.css', 'resources/js/app.js'])
+<script src="{{ asset('js/main.js') }}" defer></script>
+<script src="{{ asset('js/drop-down.js') }}" defer></script>
 
 <!-- Styles -->
 @livewireStyles
