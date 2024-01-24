@@ -21,9 +21,9 @@ use Illuminate\Support\Facades\Route;
 // });
 Route::get('/', [HomeController::class, 'index'])->name('home');
 
-Route::group(['middleware' => 'auth', 'prefix' => 'dashboard'], function () {
+Route::group(['middleware' => ['auth'], 'prefix' => 'dashboard'], function () {
     //Dashboard
-    Route::group(['prefix' => '', 'as' => 'dashboard'], function () {
+    Route::group(['prefix' => '', 'as' => 'dashboard.'], function () {
         Route::get('/', [DashboardController::class, 'index'])->name('index');
     });
 
@@ -38,12 +38,12 @@ Route::group(['middleware' => 'auth', 'prefix' => 'dashboard'], function () {
     });
 });
 
-Route::middleware([
-    'auth:sanctum',
-    config('jetstream.auth_session'),
-    'verified',
-])->group(function () {
-    Route::get('/dashboard', function () {
-        return view('dashboard');
-    })->name('dashboard');
-});
+// Route::middleware([
+//     'auth:sanctum',
+//     config('jetstream.auth_session'),
+//     'verified',
+// ])->group(function () {
+//     Route::get('/dashboard', function () {
+//         return view('dashboard.index');
+//     })->name('dashboard');
+// });
