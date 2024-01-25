@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\StoreCategoryRequest;
+use App\Http\Requests\UpdateCategoryRequest;
 use App\Models\Category;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
@@ -62,13 +63,8 @@ class CategoryController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Category $category)
+    public function update(UpdateCategoryRequest $request, Category $category)
     {
-        $this->validate($request, [
-            'name'          => ['required', 'unique:categories'],
-            'parent_id'     => ['sometimes', 'nullable'],
-        ]);
-
         $category->name = $request->name;
         $category->slug = Str::slug($request->name);
         $category->save();
