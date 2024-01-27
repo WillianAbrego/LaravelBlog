@@ -2,19 +2,19 @@
 
   <x-slot name="header">
     <h2 class="text-xl font-semibold leading-tight text-gray-800">
-      {{ __('Categories') }}
+      {{ __('Tags') }}
     </h2>
   </x-slot>
 
   <x-slot name="nav">
     <div class="space-x-4">
       {{-- Index --}}
-      <x-nav-link href="{{ route('categories.index') }}" :active="request()->routeIs('categories.index')">
+      <x-nav-link href="{{ route('tags.index') }}" :active="request()->routeIs('tags.index')">
         {{ __('Index') }}
       </x-nav-link>
 
       {{-- Create --}}
-      <x-nav-link href="{{ route('categories.create') }}" :active="request()->routeIs('categories.create')">
+      <x-nav-link href="{{ route('tags.create') }}" :active="request()->routeIs('tags.create')">
         {{ __('Create') }}
       </x-nav-link>
     </div>
@@ -26,18 +26,8 @@
       <div class="overflow-hidden bg-white shadow-xl sm:rounded-lg">
 
         <div class="p-6">
-          <form action="{{ route('categories.store') }}" method="POST">
+          <form action="{{ route('tags.store') }}" method="POST">
             @csrf
-
-            <div>
-              <small class="mb-4 text-gray-500">Note: Select Parent only for subcategory</small>
-              <select name="parent_id" id="" class="w-full mb-6 bg-indigo-200 border-none">
-                <option value="">Select Parent Category</option>
-                @foreach ($categories as $category)
-                  <option value="{{ $category->id }}">{{ $category->name }}</option>
-                @endforeach
-              </select>
-            </div>
 
             <div>
               <x-label for="name" value="{{ __('Name') }}" />
