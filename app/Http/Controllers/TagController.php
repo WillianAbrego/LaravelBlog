@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\TagRequest;
 use App\Models\Tag;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
 
 class TagController extends Controller
 {
@@ -12,7 +14,9 @@ class TagController extends Controller
      */
     public function index()
     {
-        //
+        return view('dashboard.tags.index', [
+            'tags' => Tag::all(),
+        ]);
     }
 
     /**
@@ -20,39 +24,43 @@ class TagController extends Controller
      */
     public function create()
     {
-        //
+        return view('dashboard.tags.create');
     }
 
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(TagRequest $request)
     {
-        //
+        $tag = new Tag([
+            'name' => $request->name(),
+            'slug' => Str::slug($request->name()),
+        ]);
+        $tag->save();
+
+        return redirect()->route('tags.index')->with('success', 'Tag succesfully creaed');
     }
 
-    /**
-     * Display the specified resource.
-     */
-    public function show(Tag $tag)
-    {
-        //
-    }
 
     /**
      * Show the form for editing the specified resource.
      */
     public function edit(Tag $tag)
     {
-        //
+        return view('dashboard.tags.edit', compact('tag'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Tag $tag)
+    public function update(TagRequest $request, Tag $tag)
     {
-        //
+        $tag->update([
+            'name' => $request->name(),
+            'slug' => Str::slug($request->name()),
+        ]);
+
+        return redirect()->route('tags.index')->with('success', 'Tags successfully updated!');
     }
 
     /**
@@ -60,6 +68,7 @@ class TagController extends Controller
      */
     public function destroy(Tag $tag)
     {
-        //
+        $tag->delete();
+        return redirect()->route('tags.index')->with('success', 'Tag successfully deleted!');
     }
 }

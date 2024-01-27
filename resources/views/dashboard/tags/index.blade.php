@@ -40,10 +40,6 @@
               </th>
 
               <th class="px-2 py-3 text-xs tracking-wider text-left uppercase">
-                Sub Categories
-              </th>
-
-              <th class="px-2 py-3 text-xs tracking-wider text-left uppercase">
                 Created Date
               </th>
 
