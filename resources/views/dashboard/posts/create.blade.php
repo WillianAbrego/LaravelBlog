@@ -26,22 +26,53 @@
       <div class="overflow-hidden bg-white shadow-xl sm:rounded-lg">
 
         <div class="p-6">
-          <form action="{{ route('posts.store') }}" method="POST">
-            @csrf
+          <x-form action="{{ route('posts.store') }}" has-files>
 
-            <div>
-              <x-label for="name" value="{{ __('Name') }}" />
-              <x-input id="name" class="block w-full mt-1" type="text" name="name" :value="old('name')" required
-                autofocus autocomplete="name" />
-              <span class="mt-2 text-xs text-gray-500">Maximum 200 characters</span>
-              <x-input-error for="name" class="mt-2" />
+            {{-- @csrf --}}
+            {{-- Conver image --}}
+            <div class="space-y-6">
+              <div>
+                <x-label for="cover_image" value="{{ __('Conver image') }}" />
+                <input type="file" name="conver_image" id="cover_image">
+                <span class="mt-2 text-xs text-gray-500">File type : jpg,png only</span>
+                <x-input-error for="cover_image" class="mt-2" />
+              </div>
+
+              {{-- Title --}}
+              <div class="mt-4">
+                <x-label for="title" value="{{ __('Title') }}" />
+                <x-input id="title" class="block w-full mt-1" type="text" name="titlel" :value="old('title')"
+                  required autofocus autocomplete="title" />
+                <span class="mt-2 text-xs text-gray-500">Maximum 200 characters</span>
+                <x-input-error for="title" class="mt-2" />
+              </div>
+
+              {{-- Body --}}
+              <div class="mt-4">
+                <x-label for="body" value="{{ __('Body') }}" />
+                <x-trix name="body" styling=""></x-trix>
+                <x-input-error for="body" class="mt-2" />
+              </div>
+
+              {{-- Schedule --}}
+              <div>
+                <x-label for="published_at" value="{{ __('Schedule Date') }}" />
+                <x-pikaday name="published_at" />
+              </div>
+
+              {{-- Meta Description --}}
+              <div>
+                <x-label for="meta_description" value="{{ __('Meta description') }}" />
+                <x-trix name="meta_description" styling=""></x-trix>
+                <x-input-error for="meta_description" class="mt-2" />
+
+              </div>
             </div>
-
             <x-button class="mt-12">
               {{ __('Create') }}
             </x-button>
 
-          </form>
+          </x-form>
         </div>
       </div>
     </div>
