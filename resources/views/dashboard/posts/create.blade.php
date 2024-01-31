@@ -32,7 +32,7 @@
             {{-- Conver image --}}
             <div class="space-y-6">
               <div>
-                <x-label for="cover_image" value="{{ __('Conver image') }}" />
+                <x-label for="cover_image" value="{{ __('Conver image') }}" /> <br>
                 <input type="file" name="conver_image" id="cover_image">
                 <span class="mt-2 text-xs text-gray-500">File type : jpg,png only</span>
                 <x-input-error for="cover_image" class="mt-2" />
@@ -47,10 +47,22 @@
                 <x-input-error for="title" class="mt-2" />
               </div>
 
+              {{-- Category --}}
+              <div>
+                <x-label for="category_id" value="{{ __('Categories') }}" /> <br>
+                <select name="category_id" id="category_id"
+                  class="block w-full mt-1 border-gray-300 focus:border-indigo-500 focus:ring-indigo-500 rounded-md shadow-sm">
+                  <option value="">Please select a category</option>
+                  @foreach ($categories as $category)
+                    <option value="{{ $category->id }}">{{ $category->name }}</option>
+                  @endforeach
+                </select>
+              </div>
+
               {{-- Body --}}
               <div class="mt-4">
                 <x-label for="body" value="{{ __('Body') }}" />
-                <x-trix name="body" styling=""></x-trix>
+                <x-trix name="body" styling="overflow-y-scroll h-96"></x-trix>
                 <x-input-error for="body" class="mt-2" />
               </div>
 
@@ -60,10 +72,12 @@
                 <x-pikaday name="published_at" />
               </div>
 
+
+
               {{-- Meta Description --}}
               <div>
                 <x-label for="meta_description" value="{{ __('Meta description') }}" />
-                <x-trix name="meta_description" styling=""></x-trix>
+                <x-trix name="meta_description" styling="overflow-y-scroll h-40"></x-trix>
                 <x-input-error for="meta_description" class="mt-2" />
 
               </div>
