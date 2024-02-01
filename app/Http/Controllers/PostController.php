@@ -22,9 +22,10 @@ class PostController extends Controller
      */
     public function create()
     {
+
         return view('dashboard.posts.create', [
-            'tags' => Tag::all(),
-            'categories' => Category::all(),
+            'tags'          => Tag::all(),
+            'categories'    => Category::all(),
         ]);
     }
 
@@ -33,7 +34,7 @@ class PostController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        return $request;
     }
 
     /**

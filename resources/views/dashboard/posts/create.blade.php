@@ -28,7 +28,7 @@
         <div class="p-6">
           <x-form action="{{ route('posts.store') }}" has-files>
 
-            {{-- @csrf --}}
+            @csrf
             {{-- Conver image --}}
             <div class="space-y-6">
               <div>
@@ -41,8 +41,8 @@
               {{-- Title --}}
               <div class="mt-4">
                 <x-label for="title" value="{{ __('Title') }}" />
-                <x-input id="title" class="block w-full mt-1" type="text" name="titlel" :value="old('title')"
-                  required autofocus autocomplete="title" />
+                <x-input id="title" class="block w-full mt-1" type="text" name="title" :value="old('title')"
+                  autofocus autocomplete="title" />
                 <span class="mt-2 text-xs text-gray-500">Maximum 200 characters</span>
                 <x-input-error for="title" class="mt-2" />
               </div>
@@ -72,7 +72,7 @@
                 <x-pikaday name="published_at" />
               </div>
 
-
+              <x-tags :tags="$tags" />
 
               {{-- Meta Description --}}
               <div>
