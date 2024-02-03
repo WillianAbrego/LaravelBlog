@@ -107,7 +107,7 @@
             </td>
 
             <td class="px-2 py-4 whitespace-nowrap">
-              <livewire:buttons.featured :post="$post" :name="'featured'" :key="'featured' . $post->id" />
+              {{-- <livewire:buttons.featured :post="$post" :name="'featured'" :key="'featured' . $post->id" /> --}}
             </td>
 
             <td class="px-2 py-4 whitespace-nowrap">
@@ -131,7 +131,7 @@
                   </svg>
                 </a>
 
-                <livewire:buttons.delete :post="$post" :key="$post->id" />
+                {{-- <livewire:buttons.delete :post="$post" :key="$post->id" /> --}}
 
               </div>
 
