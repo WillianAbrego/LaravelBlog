@@ -131,7 +131,7 @@
                   </svg>
                 </a>
 
-                {{-- <livewire:buttons.delete :post="$post" :key="$post->id" /> --}}
+                <livewire:buttons.delete :post="$post" :key="$post->id" />
 
               </div>
 
