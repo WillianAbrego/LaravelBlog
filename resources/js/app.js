@@ -6,10 +6,16 @@
 // Alpine.plugin(focus);
 
 import "./bootstrap";
+// import Alpine from "alpinejs";
+// window.Alpine = Alpine;
+// //require("alpinejs");
+// import focus from "@alpinejs/focus";
+// Alpine.plugin(focus);
+// //Alpine.start();
 import Alpine from "alpinejs";
-window.Alpine = Alpine;
-//require("alpinejs");
 import focus from "@alpinejs/focus";
-//import Alpine from "alpinejs";
+
+// Registra el plugin de Alpine.js
 Alpine.plugin(focus);
-Alpine.start();
+
+// Asigna Alpine.js al espacio de nombres global de window

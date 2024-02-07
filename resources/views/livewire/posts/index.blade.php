@@ -146,4 +146,5 @@
       {{ $posts->links() }}
     </div>
   </div>
+
 </div>

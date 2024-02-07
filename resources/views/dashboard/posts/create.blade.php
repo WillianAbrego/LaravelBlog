@@ -28,7 +28,6 @@
         <div class="p-6">
           <x-form action="{{ route('posts.store') }}" has-files>
 
-            @csrf
             {{-- Conver image --}}
             <div class="space-y-6">
               <div>

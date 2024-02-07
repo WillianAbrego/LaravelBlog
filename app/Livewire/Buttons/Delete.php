@@ -14,7 +14,7 @@ class Delete extends Component
     {
         $this->resetErrorBag();
         $this->dispatchBrowserEvent('confirming-delete-post');
-        $this->confirmingPostDeletion = true;
+        $this->confirmingPostDeletion = false;
     }
 
 
