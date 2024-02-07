@@ -42,46 +42,19 @@
 
         <!-- One big close button.  --->
         <div class="mt-5 sm:mt-6">
-          <span class="flex w-full rounded-md shadow-sm">
+          <div class="flex flex-row justify-between w-full">
             <button @click="open = false"
-              class="inline-flex justify-center w-full px-4 py-2 text-white bg-blue-500 rounded hover:bg-blue-700">
+              class="flex-grow px-4 py-2 text-white bg-blue-500 rounded hover:bg-blue-700 mr-2">
               Close this modal!
             </button>
-          </span>
-        </div>
+            <button @click="open = false"
+              class="flex-grow px-4 py-2 text-white bg-red-500 rounded hover:bg-red-700 ml-2" wire:click="deletePost">
+              Another Button
+            </button>
 
+          </div>
+        </div>
       </div>
     </div>
-    {{-- <div class="modal fixed w-full h-full top-0 left-0 flex items-center justify-center">
-      <div
-        class="modal-container bg-white w-5/6 md:max-w-2xl mx-auto rounded shadow-lg z-50 overflow-y-auto cursor-auto"
-        x-on:click.stop>
-        <div
-          class="modal-close absolute top-0 right-0 cursor-pointer flex flex-col items-center mt-4 mr-4 text-white text-sm z-50">
-          <!--Body-->
-          <x-dialog-modal wire:model="confirmingPostDeletion">
-            <x-slot name="title">
-              {{ __('Delete Post') }}
-            </x-slot>
-
-            <x-slot name="content">
-              {{ __('Are you sure you want to delete your this post?') }}
-            </x-slot>
-
-            <x-slot name="footer">
-              <div x-on:click="open = false">
-                <x-secondary-button wire:click="$toggle('confirmingPostDeletion')" wire:loading.attr="disabled">
-                  {{ __('Nevermind') }}
-                </x-secondary-button>
-              </div>
-              <x-danger-button class="ml-2" wire:click="deletePost" wire:loading.attr="disabled">
-                {{ __('Delete Post') }}
-              </x-danger-button>
-            </x-slot>
-          </x-dialog-modal>
-        </div>
-      </div>
-    </div> --}}
-
   </div>
 </div>

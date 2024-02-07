@@ -19,13 +19,19 @@ class Delete extends Component
 
 
     public function deletePost()
+
     {
+
         File::delete(storage_path('img/blog' . $this->post->cover_image));
         $this->post->delete();
 
         session()->flash('success', 'Post Succesfully Deleted');
 
         return redirect()->route('posts.index');
+    }
+    public function nose()
+    {
+        dd("sssss");
     }
 
     public function render()
