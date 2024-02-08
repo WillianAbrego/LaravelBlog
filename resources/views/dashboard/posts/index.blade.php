@@ -13,7 +13,7 @@
 
       {{-- Create --}}
       <x-nav-link href="{{ route('posts.create') }}" :active="request()->routeIs('posts.create')">
-        {{ __('Create') }}
+        {{ __('Creates') }}
       </x-nav-link>
     </div>
   </x-slot>

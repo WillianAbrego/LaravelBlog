@@ -1,4 +1,4 @@
-{{-- <form action="{{ route('posts.delete', $post) }}" method="POST">
+<form action="{{ route('posts.delete', $post) }}" method="POST">
   @csrf
   @method('Delete')
   <button type="submit" class="p-1 border-2 border-red-200 rounded-md">
@@ -9,8 +9,8 @@
     </svg>
   </button>
 
-</form> --}}
-
+</form>
+{{-- 
 <div x-data="{ open: false }" class="p-2 bg-red-300 rounded">
   <button x-on:click="open = !open">
     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"
@@ -48,7 +48,7 @@
               Close this modal!
             </button>
             <button @click="open = false"
-              class="flex-grow px-4 py-2 text-white bg-red-500 rounded hover:bg-red-700 ml-2" wire:click="deletePost">
+              class="flex-grow px-4 py-2 text-white bg-red-500 rounded hover:bg-red-700 ml-2" wire:click="nose">
               Another Button
             </button>
 
@@ -57,4 +57,4 @@
       </div>
     </div>
   </div>
-</div>
+</div> --}}

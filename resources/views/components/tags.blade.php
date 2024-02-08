@@ -19,10 +19,12 @@
   <x-label for="tags" value="{{ __('Tags') }}" />
   <select x-cloak id="select"
     class="block w-full mt-1 border-gray-300 rounded-md shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50">
-    @foreach ($tags as $tag)
-      <option value="{{ $tag->id }}">{{ $tag->name }}</option>
+    @foreach ($tags as $tagItem)
+      <option value="{{ $tagItem->id }}">{{ $tagItem->name }}</option>
     @endforeach
+
   </select>
+
   <x-input-error for="tags" class="mt-2" />
 </div>
 

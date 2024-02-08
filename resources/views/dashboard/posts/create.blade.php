@@ -51,7 +51,7 @@
                 <x-label for="category_id" value="{{ __('Categories') }}" /> <br>
                 <select name="category_id" id="category_id"
                   class="block w-full mt-1 border-gray-300 focus:border-indigo-500 focus:ring-indigo-500 rounded-md shadow-sm">
-                  <option value="">Please select a category</option>
+                  <option>Please select a category</option>
                   @foreach ($categories as $category)
                     <option value="{{ $category->id }}">{{ $category->name }}</option>
                   @endforeach
@@ -90,4 +90,5 @@
       </div>
     </div>
   </div>
+
 </x-app-layout>
