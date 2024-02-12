@@ -26,14 +26,14 @@
       <div class="overflow-hidden bg-white shadow-xl sm:rounded-lg">
 
         <div class="p-6">
-          <x-form action="{{ route('posts.store') }}" has-files>
+          <x-form action="{{ route('posts.store') }}" enctype="multipart/form-data">
 
             {{-- Conver image --}}
             <div class="space-y-6">
               <div>
-                <x-label for="cover_image" value="{{ __('Conver image') }}" /> <br>
-                <input type="file" name="conver_image" id="cover_image">
-                <span class="mt-2 text-xs text-gray-500">File type : jpg,png only</span>
+                <x-label for="cover_image" value="{{ __('Cover Image') }}" />
+                <input name="cover_image" type="file" id="cover_image">
+                <span class="mt-2 text-xs text-gray-500">File type:jpg,png only</span>
                 <x-input-error for="cover_image" class="mt-2" />
               </div>
 
@@ -68,7 +68,7 @@
               {{-- Schedule --}}
               <div>
                 <x-label for="published_at" value="{{ __('Schedule Date') }}" />
-                <x-pikaday name="published_at" />
+                <x-pikaday name="published_at" format="YYYY-MM-DD" />
               </div>
 
               <x-tags :tags="$tags" />

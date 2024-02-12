@@ -7,8 +7,12 @@ use App\Models\Category;
 use App\Models\Post;
 use App\Models\Tag;
 use App\Models\User;
-use Intervention\Image;
+
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Str;
+
+use Intervention\Image\Facades\Image;
 
 class PostController extends Controller
 {
@@ -38,27 +42,32 @@ class PostController extends Controller
     public function store(StorePostRequest $request)
     {
 
-        $tags = explode(',', $request->tags);
-        dd($tags);
-        $post = new Post;
-        $post->title = $request->title;
-        $post->body = $request->body;
-        $post->category_id = $request->category_id;
-        $post->published_at = $request->published_at;
+        //  $tags = explode(',', $request->tags);
+
+        $post                   = new Post;
+        $post->title            = $request->title;
+        $post->slug             = Str::slug($request->title);
+        $post->body             = $request->body;
+        $post->author_id        = Auth::user()->id;
+        $post->category_id      = $request->category_id;
+        $post->published_at     = $request->published_at;
         $post->meta_description = $request->meta_description;
 
         if ($request->hasFile('cover_image')) {
-            $image = $request->file('cover_image');
-            $imageName = $image->getClientOriginalName();
-            $imageNewName = explode('.', $imageName);
-            $fileExtention = time() . '.' . $imageNewName . $image->getClientOriginalExtension();
-            $location = storage_path('images/' . $fileExtention);
-
+            $image          = $request->file('cover_image');
+            $imageName      = $image->getClientOriginalName();
+            $imageNewName   = explode('.', $imageName)[0];
+            $fileExtention  = time() . '.' . $imageNewName . '.' . $image->getClientOriginalExtension();
+            $location       = storage_path('app/public/images/' . $fileExtention);
             Image::make($image)->resize(1200, 630)->save($location);
+
             $post->cover_image = $fileExtention;
         };
+
         $post->save();
-        $post->sync($tags);
+        $post->tags()->sync($request->tags);
+
+        return redirect()->route('posts.index')->with('success', 'Post created succesfully!');
     }
 
     /**
