@@ -17,6 +17,7 @@
     },
     "dependencies": {
         "@alpinejs/focus": "^3.13.5",
-        "alpinejs": "^3.13.5"
+        "alpinejs": "^3.13.5",
+        "choices.js": "^10.2.0"
     }
 }
