@@ -18,6 +18,7 @@
 
   <!-- Styles -->
   @livewireStyles
+  <link rel="stylesheet" href="{{ asset('css/choices.css') }}">
 
   @bukStyles(true)
 </head>
