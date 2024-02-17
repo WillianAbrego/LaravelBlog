@@ -83,7 +83,10 @@ class PostController extends Controller
      */
     public function edit(Post $post)
     {
-        //
+        $tags = Tag::all();
+        $categories = Category::all();
+        $oldTags = $post->tags->pluck('id')->toArray();
+        return view('dashboard.posts.edit', compact('post', 'tags', 'categories', 'oldTags'));
     }
 
     /**
