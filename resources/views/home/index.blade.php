@@ -428,6 +428,23 @@
       </g>
     </g>
   </svg>
+  {{-- Action Button --}}
+  <section class="container py-6 mx-auto mb-12 text-center">
+    <h1 class="w-full my-2 text-5xl font-bold leading-tight text-center text-white">
+      Subscribe to our newsletter
+    </h1>
+    <div class="w-full mb-4">
+      <div class="w-1/6 h-1 py-0 mx-auto my-0 bg-white rounded-t opacity-25"></div>
+    </div>
+    <h3 class="my-4 text-3xl leading-tight">
+      Get latest posts in your inbox!
+    </h3>
+
+    <div>
+      <livewire:newsletter.form />
+    </div>
+
+  </section>
   <section class="container mx-auto text-center py-6 mb-12">
     <h2 class="w-full my-2 text-5xl font-bold leading-tight text-center text-white">
       Call to Action
